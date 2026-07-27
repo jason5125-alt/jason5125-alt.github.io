@@ -1,0 +1,382 @@
+:root {
+  --color-bg: #0a1929;
+  --color-bg-alt: #0f2137;
+  --color-heading: #e6f1ff;
+  --color-text: #a8b7cc;
+  --color-text-dim: #7386a0;
+  --color-accent: #5eead4;
+  --sidebar-width: 340px;
+  --content-max-width: 640px;
+  --mono-font: ui-monospace, "SF Mono", "Cascadia Mono", "Segoe UI Mono", Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+    "Malgun Gothic", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Sidebar */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--color-bg);
+  overflow-y: auto;
+}
+
+.sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  padding: 64px 48px;
+}
+
+.profile-photo {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background-color: var(--color-bg-alt);
+  border: 1px solid rgba(94, 234, 212, 0.35);
+  flex-shrink: 0;
+}
+
+.sidebar-name {
+  margin: 24px 0 4px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-heading);
+  letter-spacing: -0.01em;
+}
+
+.sidebar-role {
+  margin: 0 0 40px;
+  font-size: 14px;
+  color: var(--color-text-dim);
+  line-height: 1.5;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  color: var(--color-text-dim);
+  text-decoration: none;
+  font-size: 13px;
+  font-family: var(--mono-font);
+  letter-spacing: 0.03em;
+  padding: 10px 0;
+  transition: color 0.2s ease;
+}
+
+.nav-line {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  margin-right: 12px;
+  background-color: var(--color-text-dim);
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  color: var(--color-heading);
+}
+
+.sidebar-nav a:hover .nav-line,
+.sidebar-nav a.active .nav-line {
+  width: 48px;
+  background-color: var(--color-accent);
+}
+
+/* Content */
+
+.content {
+  margin-left: var(--sidebar-width);
+  padding: 96px 64px 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section {
+  width: 100%;
+  max-width: var(--content-max-width);
+  scroll-margin-top: 48px;
+}
+
+.divider {
+  width: 100%;
+  max-width: var(--content-max-width);
+  border: none;
+  border-top: 1px solid rgba(168, 183, 204, 0.15);
+  margin: 56px 0;
+}
+
+/* About section */
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--mono-font);
+  font-size: 14px;
+  color: var(--color-accent);
+}
+
+.name-huge {
+  font-size: 52px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+  color: var(--color-heading);
+}
+
+.role-line {
+  margin: 0 0 16px;
+  color: var(--color-text);
+  font-size: 17px;
+}
+
+.meta-line {
+  margin: 0 0 28px;
+  color: var(--color-text-dim);
+  font-family: var(--mono-font);
+  font-size: 13px;
+}
+
+.intro-text {
+  margin: 0 0 28px;
+  font-size: 16px;
+  max-width: 58ch;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.icon-link {
+  color: var(--color-text-dim);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.icon-link:hover {
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* Section titles */
+
+.section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 32px;
+  color: var(--color-heading);
+}
+
+.section-number {
+  font-family: var(--mono-font);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-accent);
+}
+
+/* Experience / education entries */
+
+.entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.entry:hover {
+  background-color: var(--color-bg-alt);
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-main {
+  flex: 1;
+}
+
+.entry-title {
+  margin: 0 0 2px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.entry-org {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--color-accent);
+}
+
+.entry-desc {
+  margin: 0;
+  font-size: 15px;
+  color: var(--color-text);
+}
+
+.entry-period {
+  flex-shrink: 0;
+  font-family: var(--mono-font);
+  font-size: 12px;
+  color: var(--color-text-dim);
+  white-space: nowrap;
+  padding-top: 3px;
+}
+
+/* Skills */
+
+.skills-group {
+  margin-bottom: 28px;
+}
+
+.skills-group:last-child {
+  margin-bottom: 0;
+}
+
+.skills-subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: var(--color-heading);
+}
+
+.plain-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 15px;
+  color: var(--color-text);
+}
+
+.plain-list li {
+  margin-bottom: 8px;
+}
+
+.plain-list li:last-child {
+  margin-bottom: 0;
+}
+
+.plain-list li::marker {
+  color: var(--color-accent);
+}
+
+/* Interests */
+
+.interest-text {
+  margin: 0 0 16px;
+  font-size: 16px;
+  max-width: 58ch;
+}
+
+.interest-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid rgba(168, 183, 204, 0.15);
+  }
+
+  .sidebar-inner {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 28px 24px;
+    gap: 20px;
+  }
+
+  .profile-photo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .sidebar-name {
+    margin: 0;
+  }
+
+  .sidebar-role {
+    display: none;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: auto;
+    gap: 4px 20px;
+  }
+
+  .nav-line {
+    display: none;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 48px 24px 80px;
+  }
+
+  .name-huge {
+    font-size: 38px;
+  }
+
+  .entry {
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .entry:hover {
+    background-color: transparent;
+  }
+
+  .entry-period {
+    padding-top: 0;
+  }
+}
